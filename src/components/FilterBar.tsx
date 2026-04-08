@@ -1,5 +1,3 @@
-import type { TaskPriority, TaskStatus } from '../types/task';
-
 interface FilterBarProps {
   searchTerm: string;
   selectedStatus: string;
