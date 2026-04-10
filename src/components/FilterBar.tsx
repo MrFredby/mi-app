@@ -33,6 +33,7 @@ function FilterBar({
         />
 
         <select
+          className="priority-select"
           value={selectedStatus}
           onChange={(e) => onStatusChange(e.target.value)}
         >
