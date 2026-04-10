@@ -384,8 +384,3 @@ body {
 .task-form input[type="date"]::-webkit-calendar-picker-indicator {
     filter: invert(1);
 }
-.filter-controls input::placeholder,
-.task-form input::placeholder,
-.task-form textarea::placeholder {
-    color: #cbd5e1;
-}
