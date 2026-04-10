@@ -1,353 +1,379 @@
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  background:
-    radial-gradient(circle at top left, rgba(59, 130, 246, 0.16), transparent 28%),
-    radial-gradient(circle at top right, rgba(124, 192, 255, 0.08), transparent 20%),
-    linear-gradient(to bottom, #081120, #0f172a 45%, #111827 100%);
-  color: #f8fafc;
-  min-height: 100vh;
+    color: #f8fafc;
+    background: radial-gradient(circle at 0 0,#3b82f629,#0000 28%),radial-gradient(circle at 100% 0,#7cc0ff14,#0000 20%),linear-gradient(#081120,#0f172a 45%,#111827 100%);
+    min-height: 100vh;
+    font-family: -apple-system,BlinkMacSystemFont,Segoe UI,sans-serif
 }
 
 #root {
-  min-height: 100vh;
+    min-height: 100vh
 }
 
 .app-container {
-  min-height: 100vh;
-  padding: 42px 20px;
+    min-height: 100vh;
+    padding: 42px 20px
 }
 
 .app-wrapper {
-  max-width: 1240px;
-  margin: 0 auto;
+    max-width: 1240px;
+    margin: 0 auto
 }
 
 .app-header {
-  text-align: center;
-  margin-bottom: 34px;
+    text-align: center;
+    margin-bottom: 34px
 }
 
 .app-badge {
-  display: inline-block;
-  margin-bottom: 16px;
-  padding: 10px 16px;
-  border-radius: 999px;
-  background: rgba(124, 192, 255, 0.12);
-  border: 1px solid rgba(124, 192, 255, 0.2);
-  color: #93c5fd;
-  font-size: 0.9rem;
-  font-weight: 600;
+    color: #ffffff;
+    background: #7cbcf71f;
+    border: 1px solid #7cc0ff33;
+    border-radius: 999px;
+    margin-bottom: 16px;
+    padding: 10px 16px;
+    font-size: .9rem;
+    font-weight: 600;
+    display: inline-block
 }
 
 .app-header h1 {
-  font-size: clamp(2.6rem, 5vw, 4rem);
-  line-height: 1;
-  margin-bottom: 12px;
-  letter-spacing: -1.8px;
+    letter-spacing: -1.8px;
+    margin-bottom: 12px;
+    font-size: clamp(2.6rem,5vw,4rem);
+    line-height: 1
 }
 
 .app-header p {
-  max-width: 760px;
-  margin: 0 auto;
-  color: #94a3b8;
-  font-size: 1.04rem;
-  line-height: 1.7;
+    color: #94a3b8;
+    max-width: 760px;
+    margin: 0 auto;
+    font-size: 1.04rem;
+    line-height: 1.7
 }
 
 .stats-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 18px;
-  margin-bottom: 30px;
+    grid-template-columns: repeat(4,1fr);
+    gap: 18px;
+    margin-bottom: 30px;
+    display: grid
 }
 
 .stat-card {
-  position: relative;
-  overflow: hidden;
-  border-radius: 24px;
-  padding: 24px;
-  text-align: left;
-  border: 1px solid rgba(255, 255, 255, 0.09);
-  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.22);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: left;
+    -webkit-backdrop-filter: blur(18px);
+    backdrop-filter: blur(18px);
+    border: 1px solid #ffffff17;
+    border-radius: 24px;
+    padding: 24px;
+    transition: transform .3s,box-shadow .3s;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 18px 40px #00000038
 }
 
 .stat-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 24px 46px rgba(0, 0, 0, 0.28);
+    transform: translateY(-6px);
+    box-shadow: 0 24px 46px #00000047
 }
 
 .stat-card-total {
-  background: linear-gradient(135deg, rgba(37, 99, 235, 0.18), rgba(255, 255, 255, 0.04));
+    background: linear-gradient(135deg,#2563eb2e,#ffffff0a)
 }
 
 .stat-card-pending {
-  background: linear-gradient(135deg, rgba(148, 163, 184, 0.2), rgba(255, 255, 255, 0.04));
+    background: linear-gradient(135deg,#94a3b833,#ffffff0a)
 }
 
 .stat-card-progress {
-  background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(255, 255, 255, 0.04));
+    background: linear-gradient(135deg,#3b82f633,#ffffff0a)
 }
 
 .stat-card-completed {
-  background: linear-gradient(135deg, rgba(16, 185, 129, 0.2), rgba(255, 255, 255, 0.04));
+    background: linear-gradient(135deg,#10b98133,#ffffff0a)
 }
 
 .stat-label {
-  display: inline-block;
-  margin-bottom: 16px;
-  color: #cbd5e1;
-  font-size: 0.92rem;
-  font-weight: 600;
+    color: #cbd5e1;
+    margin-bottom: 16px;
+    font-size: .92rem;
+    font-weight: 600;
+    display: inline-block
 }
 
 .stat-card p {
-  font-size: 2.2rem;
-  font-weight: 700;
-  color: #000000;
-  line-height: 1;
+    color: #fff;
+    font-size: 2.2rem;
+    font-weight: 700;
+    line-height: 1
 }
 
 .filter-bar {
-  margin-bottom: 24px;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 28px;
-  padding: 24px;
-  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.22);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    backdrop-filter: blur(18px);
+    background: #ffffff0d;
+    border: 1px solid #ffffff14;
+    border-radius: 28px;
+    margin-bottom: 24px;
+    padding: 24px;
+    box-shadow: 0 18px 44px #00000038
 }
 
 .filter-controls {
-  display: grid;
-  grid-template-columns: 1.4fr 1fr 1fr;
-  gap: 14px;
+    grid-template-columns: 1.4fr 1fr 1fr;
+    gap: 14px;
+    display: grid
 }
 
 .filter-controls input,
 .filter-controls select {
-  width: 100%;
-  padding: 14px 16px;
-  border-radius: 16px;
-  border: 1px solid rgba(248, 248, 248, 0.993);
-  background: rgba(247, 247, 247, 0.06);
-  color: #000000;
-  outline: none;
-  font-size: 0.95rem;
+    color: #ffffff;
+    background: #ffffff;
+    border: 1px solid #ffffff;
+    border-radius: 16px;
+    outline: none;
+    width: 100%;
+    padding: 14px 16px;
+    font-size: .95rem;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+/* AQUÍ ESTÁ EL ARREGLO IMPORTANTE */
+.filter-controls select option {
+    background: #0f172a;
+    color: #f8fafc;
 }
 
 .filter-controls input::placeholder {
-  color: #94a3b8;
+    color: #94a3b8
 }
 
 .app-grid {
-  display: grid;
-  grid-template-columns: 380px 1fr;
-  gap: 24px;
-  align-items: start;
+    grid-template-columns: 380px 1fr;
+    align-items: start;
+    gap: 24px;
+    display: grid
 }
 
 .task-form,
 .task-list {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 28px;
-  padding: 26px;
-  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.28);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    backdrop-filter: blur(18px);
+    background: #ffffff;
+    border: 1px solid #ffffff14;
+    border-radius: 28px;
+    padding: 26px;
+    box-shadow: 0 18px 44px #00000047
 }
 
 .section-heading {
-  font-size: 1.35rem;
-  margin-bottom: 8px;
-  letter-spacing: -0.5px;
+    letter-spacing: -.5px;
+    margin-bottom: 8px;
+    font-size: 1.35rem
 }
 
 .section-subtext {
-  color: #94a3b8;
-  font-size: 0.95rem;
-  line-height: 1.6;
-  margin-bottom: 18px;
+    color: #ffffff;
+    margin-bottom: 18px;
+    font-size: .95rem;
+    line-height: 1.6
 }
 
 .task-form {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
+    flex-direction: column;
+    gap: 14px;
+    display: flex
 }
 
 .task-form input,
 .task-form textarea,
 .task-form select {
-  width: 100%;
-  padding: 14px 16px;
-  border-radius: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.09);
-  background: rgba(255, 255, 255, 0.06);
-  color: #000000;
-  outline: none;
-  font-size: 0.95rem;
+    color: #f8fafc;
+    background: #ffffff0f;
+    border: 1px solid #ffffff17;
+    border-radius: 16px;
+    outline: none;
+    width: 100%;
+    padding: 14px 16px;
+    font-size: .95rem;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+/* AQUÍ TAMBIÉN */
+.task-form select option {
+    background: #0f172a;
+    color: #f8fafc;
 }
 
 .task-form input::placeholder,
 .task-form textarea::placeholder {
-  color: #94a3b8;
+    color: #94a3b8
 }
 
 .task-form button {
-  border: none;
-  border-radius: 16px;
-  padding: 15px 18px;
-  background: linear-gradient(135deg, #2563eb, #3b82f6);
-  color: white;
-  font-weight: 700;
-  cursor: pointer;
+    color: #fff;
+    cursor: pointer;
+    background: linear-gradient(135deg,#2563eb,#3b82f6);
+    border: none;
+    border-radius: 16px;
+    padding: 15px 18px;
+    font-weight: 700
 }
 
 .form-actions {
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
+    flex-wrap: wrap;
+    gap: 12px;
+    display: flex
 }
 
 .form-actions button {
-  flex: 1;
+    flex: 1
 }
 
 .secondary-btn {
-  border: 1px solid rgba(255, 255, 255, 0.12) !important;
-  background: rgba(255, 255, 255, 0.06) !important;
-  color: #f8fafc !important;
-  box-shadow: none !important;
+    color: #f8fafc!important;
+    box-shadow: none!important;
+    background: #ffffff0f!important;
+    border: 1px solid #ffffff1f!important
 }
 
 .task-card {
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 22px;
-  padding: 20px;
-  margin-bottom: 16px;
+    background: #ffffff0f;
+    border: 1px solid #ffffff14;
+    border-radius: 22px;
+    margin-bottom: 16px;
+    padding: 20px
 }
 
 .task-card-top {
-  display: flex;
-  justify-content: space-between;
-  gap: 12px;
-  align-items: center;
-  margin-bottom: 10px;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 10px;
+    display: flex
 }
 
 .task-card-buttons {
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
+    flex-wrap: wrap;
+    gap: 10px;
+    display: flex
 }
 
 .edit-btn {
-  border: none;
-  background: rgba(37, 99, 235, 0.9);
-  color: white;
-  padding: 10px 14px;
-  border-radius: 12px;
-  cursor: pointer;
-  font-weight: 600;
+    color: #fff;
+    cursor: pointer;
+    background: #2563ebe6;
+    border: none;
+    border-radius: 12px;
+    padding: 10px 14px;
+    font-weight: 600
 }
 
 .task-card-top button {
-  border: none;
-  background: rgba(185, 28, 28, 0.9);
-  color: white;
-  padding: 10px 14px;
-  border-radius: 12px;
-  cursor: pointer;
-  font-weight: 600;
+    color: #fff;
+    cursor: pointer;
+    background: #b91c1ce6;
+    border: none;
+    border-radius: 12px;
+    padding: 10px 14px;
+    font-weight: 600
 }
 
 .task-card p {
-  color: #cbd5e1;
-  margin-bottom: 14px;
-  line-height: 1.6;
+    color: #cbd5e1;
+    margin-bottom: 14px;
+    line-height: 1.6
 }
 
 .task-meta {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
+    flex-wrap: wrap;
+    gap: 10px;
+    display: flex
 }
 
 .task-meta span {
-  font-size: 0.83rem;
-  color: #7cc0ff;
-  background: rgba(124, 192, 255, 0.1);
-  padding: 8px 10px;
-  border-radius: 999px;
+    color: #7cc0ff;
+    background: #7cc0ff1a;
+    border-radius: 999px;
+    padding: 8px 10px;
+    font-size: .83rem
 }
 
 .task-actions-row {
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-  margin-top: 18px;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 18px;
+    display: flex
 }
 
 .status-btn {
-  border: none;
-  border-radius: 12px;
-  padding: 10px 14px;
-  background: #1e293b;
-  color: #f8fafc;
-  cursor: pointer;
-  font-weight: 600;
+    color: #f8fafc;
+    cursor: pointer;
+    background: #1e293b;
+    border: none;
+    border-radius: 12px;
+    padding: 10px 14px;
+    font-weight: 600
 }
 
 .priority-badge.priority-low {
-  background: rgba(34, 197, 94, 0.14);
-  color: #86efac;
+    color: #86efac;
+    background: #22c55e24
 }
 
 .priority-badge.priority-medium {
-  background: rgba(234, 179, 8, 0.14);
-  color: #fde68a;
+    color: #fde68a;
+    background: #eab30824
 }
 
 .priority-badge.priority-high {
-  background: rgba(239, 68, 68, 0.14);
-  color: #fca5a5;
+    color: #fca5a5;
+    background: #ef444424
 }
 
 .status-pending {
-  border-left: 4px solid #94a3b8;
+    border-left: 4px solid #94a3b8
 }
 
 .status-in-progress {
-  border-left: 4px solid #60a5fa;
+    border-left: 4px solid #60a5fa
 }
 
 .status-completed {
-  border-left: 4px solid #34d399;
+    border-left: 4px solid #34d399
 }
 
 .empty-state {
-  color: #94a3b8;
-  text-align: center;
-  padding: 34px 0;
-  font-size: 1rem;
+    color: #94a3b8;
+    text-align: center;
+    padding: 34px 0;
+    font-size: 1rem
 }
 
-@media (max-width: 900px) {
-  .stats-grid,
-  .app-grid,
-  .filter-controls {
-    grid-template-columns: 1fr;
-  }
+@media (width<=900px) {
+    .stats-grid,.app-grid,.filter-controls {
+        grid-template-columns: 1fr
+    }
+}
+.filter-controls select,
+.task-form select,
+.filter-controls input,
+.task-form input,
+.task-form textarea {
+    color: #ffffff !important;
+}
+
+.filter-controls select option,
+.task-form select option {
+    background-color: #0f172a !important;
+    color: #ffffff !important;
 }
