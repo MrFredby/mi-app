@@ -3,7 +3,6 @@ import TaskForm from './components/TaskForm';
 import TaskList from './components/TaskList';
 import FilterBar from './components/FilterBar';
 import type { Task, TaskStatus } from './types/task';
-import { getTasksFromStorage, saveTasksToStorage } from './utils/storage';
 
 function App() {
   const [tasks, setTasks] = useState<Task[]>([]);
@@ -13,45 +12,111 @@ function App() {
   const [selectedPriority, setSelectedPriority] = useState('all');
 
   useEffect(() => {
-    const savedTasks = getTasksFromStorage();
-    setTasks(savedTasks);
+    fetchTasks();
   }, []);
 
-  useEffect(() => {
-    saveTasksToStorage(tasks);
-  }, [tasks]);
-
-  function handleAddTask(task: Task) {
-    setTasks((prevTasks) => [task, ...prevTasks]);
-  }
-
-  function handleDeleteTask(id: string) {
-    setTasks((prevTasks) => prevTasks.filter((task) => task.id !== id));
-
-    if (editingTask?.id === id) {
-      setEditingTask(null);
+  async function fetchTasks() {
+    try {
+      const response = await fetch('http://localhost:3000/api/tareas');
+      const data = await response.json();
+      setTasks(data);
+    } catch (error) {
+      console.error('Error al cargar tareas:', error);
     }
   }
 
-  function handleUpdateStatus(id: string, status: TaskStatus) {
-    setTasks((prevTasks) =>
-      prevTasks.map((task) =>
-        task.id === id ? { ...task, status } : task
-      )
-    );
+  async function handleAddTask(task: Task) {
+    try {
+      const response = await fetch('http://localhost:3000/api/tareas', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(task)
+      });
+
+      if (!response.ok) {
+        throw new Error('Error al crear tarea');
+      }
+
+      await fetchTasks();
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  async function handleDeleteTask(id: string) {
+    try {
+      const response = await fetch(`http://localhost:3000/api/tareas/${id}`, {
+        method: 'DELETE'
+      });
+
+      if (!response.ok) {
+        throw new Error('Error al eliminar tarea');
+      }
+
+      setTasks((prevTasks) => prevTasks.filter((task) => task.id !== id));
+
+      if (editingTask?.id === id) {
+        setEditingTask(null);
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  async function handleUpdateStatus(id: string, status: TaskStatus) {
+    try {
+      const response = await fetch(`http://localhost:3000/api/tareas/${id}/status`, {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ status })
+      });
+
+      if (!response.ok) {
+        throw new Error('Error al actualizar estado');
+      }
+
+      setTasks((prevTasks) =>
+        prevTasks.map((task) =>
+          task.id === id ? { ...task, status } : task
+        )
+      );
+    } catch (error) {
+      console.error(error);
+    }
   }
 
   function handleEditTask(task: Task) {
     setEditingTask(task);
   }
 
-  function handleUpdateTask(updatedTask: Task) {
-    setTasks((prevTasks) =>
-      prevTasks.map((task) =>
-        task.id === updatedTask.id ? updatedTask : task
-      )
-    );
-    setEditingTask(null);
+  async function handleUpdateTask(updatedTask: Task) {
+    try {
+      const response = await fetch(`http://localhost:3000/api/tareas/${updatedTask.id}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(updatedTask)
+      });
+
+      if (!response.ok) {
+        throw new Error('Error al actualizar tarea');
+      }
+
+      setTasks((prevTasks) =>
+        prevTasks.map((task) =>
+          task.id === updatedTask.id ? updatedTask : task
+        )
+      );
+
+      setEditingTask(null);
+    } catch (error) {
+      console.error(error);
+    }
   }
 
   function handleCancelEdit() {

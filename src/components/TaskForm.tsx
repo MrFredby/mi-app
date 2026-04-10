@@ -2,8 +2,8 @@ import { useEffect, useState } from 'react';
 import type { Task, TaskPriority } from '../types/task';
 
 interface TaskFormProps {
-  onAddTask: (task: Task) => void;
-  onUpdateTask: (task: Task) => void;
+  onAddTask: (task: Task) => void | Promise<void>;
+  onUpdateTask: (task: Task) => void | Promise<void>;
   editingTask: Task | null;
   onCancelEdit: () => void;
 }
@@ -40,7 +40,7 @@ function TaskForm({
     setDueDate('');
   }
 
-  function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
 
     if (!title.trim()) return;
@@ -55,7 +55,7 @@ function TaskForm({
         dueDate,
       };
 
-      onUpdateTask(updatedTask);
+      await onUpdateTask(updatedTask);
     } else {
       const newTask: Task = {
         id: crypto.randomUUID(),
@@ -68,7 +68,7 @@ function TaskForm({
         createdAt: new Date().toISOString(),
       };
 
-      onAddTask(newTask);
+      await onAddTask(newTask);
     }
 
     resetForm();
