@@ -188,3 +188,11 @@
     grid-template-columns: 1fr;
   }
 }
+.priority-select {
+  color: #0f172a;
+}
+
+.priority-select option {
+  color: #0f172a;
+  background: #ffffff;
+}
