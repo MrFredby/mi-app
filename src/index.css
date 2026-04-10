@@ -372,15 +372,3 @@ body {
     color: #ffffff !important;
 }
 
-.filter-controls select option,
-.task-form select option {
-    background-color: #0f172a !important;
-    color: #ffffff !important;
-}
-.task-form input[type="date"] {
-    color: #ffffff !important;
-}
-
-.task-form input[type="date"]::-webkit-calendar-picker-indicator {
-    filter: invert(1);
-}
