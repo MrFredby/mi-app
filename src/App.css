@@ -57,10 +57,10 @@
 .task-list,
 .filter-bar,
 .empty-state {
-  background: white;
+  background: rgb(0, 0, 0);
   border-radius: 16px;
   padding: 20px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 8px 24px rgb(255, 255, 255);
 }
 
 .section-heading {
