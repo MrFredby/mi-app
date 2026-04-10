@@ -25,25 +25,30 @@ function App() {
     }
   }
 
-  async function handleAddTask(task: Task) {
-    try {
-      const response = await fetch('http://localhost:3000/api/tareas', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(task)
-      });
+async function handleAddTask(task: Task) {
+  try {
+    console.log('Enviando tarea:', task);
 
-      if (!response.ok) {
-        throw new Error('Error al crear tarea');
-      }
+    const response = await fetch('http://localhost:3000/api/tareas', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(task)
+    });
 
-      await fetchTasks();
-    } catch (error) {
-      console.error(error);
+    const data = await response.json();
+    console.log('Respuesta backend:', data);
+
+    if (!response.ok) {
+      throw new Error('Error al crear tarea');
     }
+
+    await fetchTasks();
+  } catch (error) {
+    console.error('Error en handleAddTask:', error);
   }
+}
 
   async function handleDeleteTask(id: string) {
     try {
