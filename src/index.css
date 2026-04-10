@@ -351,3 +351,41 @@ body {
     grid-template-columns: 1fr;
   }
 }
+.filter-controls input,
+.filter-controls select,
+.task-form input,
+.task-form textarea,
+.task-form select {
+  background: #1e293b !important;
+  color: #ffffff !important;
+  border: 1px solid #475569 !important;
+}
+
+.filter-controls input::placeholder,
+.task-form input::placeholder,
+.task-form textarea::placeholder {
+  color: #cbd5e1 !important;
+}
+
+.filter-controls select option,
+.task-form select option {
+  background: #0f172a !important;
+  color: #ffffff !important;
+}
+
+.task-form input[type="date"] {
+  background: #1e293b !important;
+  color: #ffffff !important;
+}
+
+.task-form input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+}
+
+.section-heading,
+.section-subtext,
+.task-form label,
+.task-form h2,
+.task-form h3 {
+  color: #ffffff !important;
+}
